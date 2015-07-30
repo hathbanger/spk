@@ -1,0 +1,27 @@
+- if user_signed_in?
+	%p#intro
+		Hello
+		= current_user.name
+		%br/
+		%span
+			Are you the next SpotKing?
+- else
+	%p#intro
+		Wanna be king?
+		%br/
+		%span
+
+#tricks
+	- @tricks.each do |trick|
+		= link_to (image_tag trick.image.url(:small)), trick
+		%h2= link_to trick.title, trick
+
+		%P
+			= trick.comments.count
+			Comments
+		%p
+			= trick.get_likes.size
+			likes
+			
+			= trick.get_dislikes.size
+			dislikes

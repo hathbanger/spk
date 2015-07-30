@@ -1,0 +1,4 @@
+%h3 add a comment
+= simple_form_for([@trick, @trick.comments.build]) do |f|
+	= f.input :content, label: "reply to trick"
+	= f.button :submit, class: "button"
