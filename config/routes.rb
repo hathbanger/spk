@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :spots
+
   devise_for :users
   resources :tricks do
   	member do

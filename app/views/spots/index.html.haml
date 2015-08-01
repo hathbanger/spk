@@ -1,0 +1,16 @@
+- if user_signed_in?
+	%p#intro
+		Hello
+		= current_user.name
+		%br/
+		%span
+			Pick a Spot
+- else
+	%p#intro
+		Wanna be king?
+		%br/
+		%span
+
+#tricks
+	- @spots.each do |spot|
+		%h2= link_to spot.title, spot
