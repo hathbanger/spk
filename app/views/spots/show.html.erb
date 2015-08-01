@@ -1,10 +1,8 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @spot.title %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @spot.description %>
@@ -13,6 +11,17 @@
   <strong>Street:</strong>
   <%= @spot.street %>
 </p>
-
+<p>
+  <strong>City:</strong>
+  <%= @spot.city %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @spot.state %>
+</p>
+<p>
+  <strong>Zipcode:</strong>
+  <%= @spot.zipcode %>
+</p>
 <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <%= link_to 'Back', spots_path %>
