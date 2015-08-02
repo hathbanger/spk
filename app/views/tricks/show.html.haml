@@ -2,6 +2,8 @@
 %h1= @trick.title
 %p= @trick.description
 %p= @trick.user.name
+%p= @trick.lati
+%p= @trick.long
 %p
 	= @trick.get_upvotes.size
 	Likes
@@ -10,6 +12,8 @@
 	Dislikes
 = link_to "Like", like_trick_path(@trick), method: :get
 = link_to "Dislike", dislike_trick_path(@trick), method: :get
+
+
 
 
 #comment

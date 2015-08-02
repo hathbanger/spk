@@ -11,12 +11,7 @@
 		%br/
 		%span
 
-%p	
-	= @users = User.all 
-	= @users.each do |user|
-		%p 
-			= user.name
-			= link_to "+", root_path
+
 #tricks
 	- @tricks.each do |trick|
 		= link_to (image_tag trick.image.url(:small)), trick
@@ -31,3 +26,4 @@
 			
 			= trick.get_dislikes.size
 			dislikes
+			
