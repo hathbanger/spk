@@ -3,7 +3,8 @@ class TricksController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@tricks = Trick.all.order("created_at DESC")
+		following_ids = current_user.following_users.map(&:id)
+		@tricks = Trick.where(user_id: following_ids).order("created_at DESC")
 	end
 
 	def show
@@ -12,6 +13,7 @@ class TricksController < ApplicationController
 
 	def new
 		@trick = current_user.tricks.build
+		@spot = Spot.all
 	end
 
 	def create
@@ -57,7 +59,7 @@ class TricksController < ApplicationController
 	end
 
 	def trick_params
-		params.require(:trick).permit(:title, :description, :image, :lati, :long)
+		params.require(:trick).permit(:title, :description, :image, :lati, :long, :spot)
 	end
 
 end

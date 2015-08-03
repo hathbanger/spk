@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=10&markers=#{@spot.latitude}%2C#{@spot.longitude}" %>
 <p>
   <strong>Title:</strong>
   <%= @spot.title %>
@@ -23,5 +24,20 @@
   <strong>Zipcode:</strong>
   <%= @spot.zipcode %>
 </p>
+<p>
+  <strong>Longitude:</strong>
+  <%= @spot.longitude %>
+</p>
+<p>
+  <strong>Latitude:</strong>
+  <%= @spot.latitude %>
+</p>
+<% @tricks.each do |trick| %>
+<p>
+<%= image_tag trick.image.url(:medium) %>
+<% end %>
+</p>
 <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <%= link_to 'Back', spots_path %>
+<%= link_to "Destroy", spot_path(@spot), method: :delete, data: { confirm: "are you sure?"}%>
+

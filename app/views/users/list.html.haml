@@ -1,0 +1,11 @@
+Following
+%br/
+- current_user.following_users.to_a.map(&:name).each do |user|
+	%a= user
+	%br/
+Followers
+%br/
+- current_user.followers.each do |user|
+	%a= user.name
+	= link_to user.follow(user)
+	%br/

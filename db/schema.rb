@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801222401) do
+ActiveRecord::Schema.define(version: 20150803015415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20150801222401) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
+  create_table "locations", force: true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "spot_id"
+  end
+
   create_table "spots", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -49,7 +58,31 @@ ActiveRecord::Schema.define(version: 20150801222401) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
+    t.float    "lati"
+    t.float    "long"
+    t.float    "latitude"
+    t.float    "longitude"
   end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "tricks", force: true do |t|
     t.string   "title"
@@ -63,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150801222401) do
     t.datetime "image_updated_at"
     t.float    "lati"
     t.float    "long"
+    t.integer  "spot_id"
   end
 
   create_table "users", force: true do |t|
@@ -79,6 +113,10 @@ ActiveRecord::Schema.define(version: 20150801222401) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

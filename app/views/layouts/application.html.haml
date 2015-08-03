@@ -15,17 +15,19 @@
 				%nav
 					- if user_signed_in?
 						= link_to current_user.name, edit_user_registration_path
-						= link_to "Add Tricks", new_trick_path, class: "button"
+						%br/
+						= link_to "Tricks", tricks_path, class: "button"
 						= link_to "Spots", spots_path, class: "button"
+						%br/
+						= link_to "Add Tricks", new_trick_path, class: "button"
+						%br/
 						= link_to "Sign Out", destroy_user_session_path, :method => :delete 
 						<br/>
 						Followers
-						= link_to current_user.follow_count
+						= link_to current_user.follow_count, users_list_path
 						Following
-						= link_to current_user.followers.count
+						= link_to current_user.followers_count, users_list_path
 					- else
-						= link_to "Sign In", new_user_session_path
-						= link_to "Sign Up", new_user_registration_path, class: "button"
 
 			%p.notice= notice
 			%p.alert= alert

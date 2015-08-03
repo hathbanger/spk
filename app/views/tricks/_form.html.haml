@@ -4,5 +4,6 @@
 	= f.input :description
 	= f.input :lati
 	= f.input :long
-
+	- @spot.each do |spot|
+		%p= link_to spot.title
 	=f.button :submit

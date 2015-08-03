@@ -1,0 +1,29 @@
+%h1= current_user.name 
+= image_tag current_user.avatar.url(:medium)
+%br/
+Following: 
+= current_user.all_following.size
+%br/
+Followers: 
+= current_user.follow_count
+%br/
+#tricks
+	User Posts
+	%br/
+	- current_user.tricks.each do |trick|
+		= link_to (image_tag trick.image.url(:small)), trick
+		%h2= link_to trick.title, trick
+
+		%P
+			= trick.comments.count
+			Comments
+		%p
+			= trick.get_likes.size
+			likes
+			
+			= trick.get_dislikes.size
+			dislikes
+
+
+%div#map_canvas
+	hey

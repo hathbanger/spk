@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
-
   respond_to :html
 
   def index
@@ -9,6 +9,7 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @tricks = Trick.where(spot_id: @spot)
     respond_with(@spot)
   end
 
@@ -42,6 +43,6 @@ class SpotsController < ApplicationController
     end
 
     def spot_params
-      params.require(:spot).permit(:title, :description, :street, :city, :state, :zipcode)
+      params.require(:spot).permit(:title, :description, :street, :city, :state, :zipcode, :lati, :long, :longitude, :latitude, :location)
     end
 end
