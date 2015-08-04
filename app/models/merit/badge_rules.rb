@@ -32,12 +32,12 @@ module Merit
       # end
 
       # app/models/merit/badge_rules.rb
-      grant_on 'comments#create',  badge: 'Jr.Critic', to: :user do |comment|
-        comment.user.comments.count >= 10 &&  comment.user.comments.count < 50
-      end
-      grant_on 'comments#create',  badge: 'Sr.Critic', to: :user do |comment|
-        comment.user.comments.count >= 50
-      end
+      # grant_on 'comments#create',  badge: 'Jr.Critic', to: :user do |comment|
+      #   comment.user.comments.count >= 10 &&  comment.user.comments.count < 50
+      # end
+      # grant_on 'comments#create',  badge: 'Sr.Critic', to: :user do |comment|
+      #   comment.user.comments.count >= 50
+      # end
     end
   end
 end
