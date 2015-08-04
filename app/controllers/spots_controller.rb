@@ -43,6 +43,6 @@ class SpotsController < ApplicationController
     end
 
     def spot_params
-      params.require(:spot).permit(:title, :description, :street, :city, :state, :zipcode, :lati, :long, :longitude, :latitude, :location, :address)
+      params.require(:spot).permit(:title, :description, :street, :city, :state, :zipcode, :address, :lati, :long, :longitude, :latitude, :location)
     end
 end
