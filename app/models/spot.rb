@@ -1,6 +1,6 @@
 class Spot < ActiveRecord::Base
-	attr_accessible :title, :latitude, :longitude
-	geocoded_by :title
+	attr_accessible :street, :latitude, :longitude
+	geocoded_by :street
 	after_validation :geocode, :if => :street_changed?
 	has_many :tricks
 end

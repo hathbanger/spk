@@ -1,16 +1,26 @@
 class UsersController < ApplicationController
 	def show
-		@user = User.all
+		@user = User.find(params[:id])
 	end
 	def create
  	 	@user = User.create( user_params )
 	end
 	def list
 		@users = User.all
+
 	end
-
+	def follow
+	  @user = User.find(params[:id])
+	  current_user.follow(@user)
+	  redirect_to :back
+	end	
+	def unfollow
+	  @user = User.find(params[:id])
+	  current_user.stop_following(@user)
+	  redirect_to :back
+	end
+	
 	private
-
 	# Use strong_parameters for attribute whitelisting
 	# Be sure to update your create() and update() controller methods.
 

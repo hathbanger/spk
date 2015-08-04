@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   	end
   	resources :comments
   end
-
+  resources :users do
+    member do
+      get :follow, to: "users#follow"
+      get :unfollow, to: "users#unfollow"
+    end
+  end
   authenticated :user do
     root 'tricks#index', as: "authenticated_root"
   end

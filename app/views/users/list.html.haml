@@ -1,11 +1,36 @@
+All Users
+%br/
+
+- @users.each do |user|
+	= link_to user.name, user
+	- if current_user.following?(user)
+		= link_to "-", unfollow_user_path(user)
+	- else 
+		= link_to "+", follow_user_path(user)
+
+
+	%br/
+%br/
+%br/
 Following
 %br/
-- current_user.following_users.to_a.map(&:name).each do |user|
-	%a= user
+- current_user.following_users.each do |user|
+	= link_to user.name, user
+	- if current_user.following?(user)
+		= link_to "-", unfollow_user_path(user)
+	- else 
+		= link_to "+", follow_user_path(user)
 	%br/
+%br/
+
 Followers
 %br/
 - current_user.followers.each do |user|
-	%a= user.name
-	= link_to user.follow(user)
+	= link_to user.name, user
+	- if current_user.following?(user)
+		= link_to "-", unfollow_user_path(user)
+	- else 
+		= link_to "+", follow_user_path(user)
 	%br/
+%br/
+%br/

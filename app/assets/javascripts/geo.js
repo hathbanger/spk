@@ -17,15 +17,18 @@ function showPosition(position) {
     $('#demo').text("Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude);
     }	
-
-
+$(document).ready(function(){
+    if ($('#map_canvas') != true){ 
   jQuery(function($) {
     // Asynchronously Load the map API 
+
     var script = document.createElement('script');
     script.src = "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
     document.body.appendChild(script);
-});
 
+});
+     }
+     })
 function initialize() {
     var map;
     var bounds = new google.maps.LatLngBounds();
