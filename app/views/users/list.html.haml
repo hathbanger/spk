@@ -37,7 +37,8 @@
 %br/
 - @tricks.each do |trick|
 	= link_to (image_tag trick.image.url(:small)), trick
-	%h2= link_to trick.user.name, trick
+	%h2= link_to trick.title, trick
+	%h5= link_to trick.user.name, trick.user
 
 	%p
 		= trick.get_likes.size

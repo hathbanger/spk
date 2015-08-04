@@ -1,12 +1,10 @@
 = image_tag @trick.image.url(:medium)
 %h1= @trick.title
 %p= @trick.description
-%p= @trick.user.name
-%p= link_to @trick.spot.title, @trick.spot
+%p= link_to @trick.user.name, @trick.user
 %p
 	= @trick.get_upvotes.size
 	Likes
-%p
 	= @trick.get_downvotes.size
 	Dislikes
 = link_to "Like", like_trick_path(@trick), method: :get
