@@ -15,9 +15,7 @@
 				%br/
 				%nav
 					- if user_signed_in?
-						= link_to current_user.name, @user
-						|
-						= link_to "Find Skaters", users_list_path
+						= link_to current_user.name, current_user
 						|
 						Following: 
 						= link_to current_user.all_follows.size, users_list_path
