@@ -19,13 +19,13 @@ Merit.setup do |config|
   # config.current_user_method = 'current_user'
 end
 
-Merit::Badge.create!(
-  id: 1,
-  name: "Jr.Critic",
-  description: "Over 10 comments"
-)
-Merit::Badge.create!(
-  id: 2,
-  name: "Sr.Critic",
-  description: "Over 50 comments"
-)
+# Merit::Badge.create!(
+#   id: 1,
+#   name: "Jr.Critic",
+#   description: "Over 10 comments"
+# )
+# Merit::Badge.create!(
+#   id: 2,
+#   name: "Sr.Critic",
+#   description: "Over 50 comments"
+# )
