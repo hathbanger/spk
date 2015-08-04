@@ -3,11 +3,10 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 	def create
- 	 	@user = User.create( user_params )
 	end
 	def list
 		@users = User.all
-
+		@tricks = Trick.all.order("created_at DESC")
 	end
 	def follow
 	  @user = User.find(params[:id])
@@ -25,6 +24,6 @@ class UsersController < ApplicationController
 	# Be sure to update your create() and update() controller methods.
 
 	def user_params
-	  params.require(:user).permit(:avatar)
+	  params.require(:user).permit(:avatar, :tricks)
 	end
 end

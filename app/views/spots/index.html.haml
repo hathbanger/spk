@@ -16,3 +16,11 @@
 #tricks
 	- @spots.each do |spot|
 		%h2= link_to spot.title, spot
+		Uploads:
+		= link_to spot.tricks.size, spot
+		|
+		Longitude:
+		= link_to spot.longitude, spot, class: "coords"
+		|
+		Latitude:
+		= link_to spot.latitude, spot, class: "coords"

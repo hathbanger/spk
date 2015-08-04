@@ -1,5 +1,7 @@
-%h1= @user.name 
-= image_tag @user.avatar.url(:medium)
+%h1= @user.name
+Badges: 
+%h3= @user.badges
+= image_tag @user.avatar(:medium)
 %br/
 Following: 
 = @user.follow_count
@@ -8,9 +10,9 @@ Followers:
 = @user.followers.size
 %br/
 - if current_user.following?(@user)
-	= link_to "Unfollow", unfollow_user_path(@user)
+	= link_to "Unfollow", follow_user_path(@user)
 - else
-	= link_to "Follow", follow_user_path(@user)
+	= link_to "Follow", unfollow_user_path(@user)
 #tricks
 	User Posts
 	%br/
@@ -30,4 +32,3 @@ Followers:
 
 
 %div#map_canvas
-	hey

@@ -2,8 +2,6 @@
 %h1= @trick.title
 %p= @trick.description
 %p= @trick.user.name
-%p= @trick.lati
-%p= @trick.long
 %p
 	= @trick.get_upvotes.size
 	Likes
@@ -19,7 +17,7 @@
 	%h2.comment_count= pluralize(@trick.comments.count, "Comment")
 	- @comments.each do |comment|
 		.comment
-			%p.username= comment.user.avatar
+			= image_tag comment.user.avatar(:thumb)
 			%p.username= comment.user.name
 			%p.content= comment.content
 	= render 'comments/form'

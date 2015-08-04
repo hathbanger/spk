@@ -1,4 +1,4 @@
-All Users
+%h2= "All Users"
 %br/
 
 - @users.each do |user|
@@ -11,8 +11,7 @@ All Users
 
 	%br/
 %br/
-%br/
-Following
+%h2= "Following"
 %br/
 - current_user.following_users.each do |user|
 	= link_to user.name, user
@@ -22,8 +21,7 @@ Following
 		= link_to "+", follow_user_path(user)
 	%br/
 %br/
-
-Followers
+%h2= "Followers"
 %br/
 - current_user.followers.each do |user|
 	= link_to user.name, user
@@ -32,5 +30,18 @@ Followers
 	- else 
 		= link_to "+", follow_user_path(user)
 	%br/
+
 %br/
+
+%h2 Here are some of the people and their recent pics
 %br/
+- @tricks.each do |trick|
+	= link_to (image_tag trick.image.url(:small)), trick
+	%h2= link_to trick.user.name, trick
+
+	%p
+		= trick.get_likes.size
+		likes
+		
+		= trick.get_dislikes.size
+		dislikes

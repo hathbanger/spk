@@ -2,8 +2,6 @@
 	= f.input :image
 	= f.input :title
 	= f.input :description
-	= f.input :lati
-	= f.input :long
-	- @spot.each do |spot|
-		%p= link_to spot.title
+	= f.association :spot,   as: :radio_buttons 
 	=f.button :submit
+

@@ -11,34 +11,43 @@
 	%header
 		.container	
 			.wrapper.clearfix
-				#logo= link_to "SpotKing", root_path
-				%br/
+				%h1#logo= link_to "SpotKing", root_path
 				%br/
 				%nav
 					- if user_signed_in?
-						= link_to current_user.name, edit_user_registration_path
-						%br/
+						= link_to current_user.name, @user
+						|
 						= link_to "Find Skaters", users_list_path
-						%br/
+						|
 						Following: 
 						= link_to current_user.all_follows.size, users_list_path
-						%br/
+						|
 						Followers: 
 						= link_to current_user.followers.size, users_list_path
-						%br/
+						|
+						Badges: 
+						= link_to current_user.badges
+						|
 						= link_to "Sign Out", destroy_user_session_path, :method => :delete 
 						%br/
 						%br/
-						%br/
+						= link_to "Find Skaters", users_list_path
+						|
 						%br/
 						= link_to "Tricks", tricks_path, class: "button"
+						|
 						%br/
 						= link_to "Spots", spots_path, class: "button"
+						|  
 						%br/
 						%br/
+						<
 						= link_to "Add Tricks", new_trick_path, class: "button"
+						>
 						%br/
+						<
 						= link_to "Add Spots", new_spot_path, class: "button"
+						>
 						%br/
 
 

@@ -1,5 +1,4 @@
-console.log('working');
-var x = document.getElementById("demo");
+
 
 function getLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -17,8 +16,7 @@ function showPosition(position) {
     $('#demo').text("Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude);
     }	
-$(document).ready(function(){
-    if ($('#map_canvas') != true){ 
+
   jQuery(function($) {
     // Asynchronously Load the map API 
 
@@ -27,8 +25,7 @@ $(document).ready(function(){
     document.body.appendChild(script);
 
 });
-     }
-     })
+
 function initialize() {
     var map;
     var bounds = new google.maps.LatLngBounds();
@@ -41,8 +38,11 @@ function initialize() {
     map.setTilt(45);
         
     // Multiple Markers
+    var lat = $('.coords:eq(0)').text();
+    var lon = $('.coords:eq(1)').text();
+
     var markers = [
-        ['Boulder Skatepark, Boulder', 39.9166938,-105.0627738],
+        ['Broomfield Skatepark, Broomfield', 39.9166938,-105.0627738],
         ['Denver Skatepark, Denver', 39.7596167,-105.0025979]
     ];
                         
@@ -84,7 +84,7 @@ function initialize() {
 
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-        this.setZoom(14);
+        this.setZoom(11);
         google.maps.event.removeListener(boundsListener);
     });
     

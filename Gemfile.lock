@@ -31,6 +31,7 @@ GEM
       activerecord (>= 3.2, < 5)
     acts_as_follower (0.2.1)
     acts_as_votable (0.10.0)
+    ambry (0.3.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.10)
     builder (3.2.2)
@@ -69,6 +70,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    merit (2.3.2)
+      ambry (~> 0.3.0)
     mime-types (1.25.1)
     mimemagic (0.3.0)
     minitest (5.7.0)
@@ -167,6 +170,7 @@ DEPENDENCIES
   haml (~> 4.0.6)
   jbuilder (~> 2.0)
   jquery-rails
+  merit
   paperclip (~> 4.3.0)
   papercrop
   pg

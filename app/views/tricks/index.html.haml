@@ -16,13 +16,13 @@
 	- @tricks.each do |trick|
 		= link_to (image_tag trick.image.url(:small)), trick
 		%h2= link_to trick.title, trick
-
-		%P
-			= trick.comments.count
-			Comments
 		%p
 			= trick.get_likes.size
 			likes
+		%P
+			= trick.comments.count
+			Comments
+
 			
 			= trick.get_dislikes.size
 			dislikes
