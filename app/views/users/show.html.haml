@@ -30,6 +30,8 @@ Followers:
 			
 			= trick.get_dislikes.size
 			dislikes
-
+		%p
+			- if current_user == @user
+				= link_to "(delete)", trick_path(trick), method: :delete, data: { confirm: "are you sure?"}
 
 %div#map_canvas

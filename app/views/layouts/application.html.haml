@@ -15,13 +15,15 @@
 				%br/
 				%nav
 					- if user_signed_in?
-						= link_to current_user.name, current_user
+						= link_to image_tag(current_user.avatar(:thumb)), current_user
 						|
 						Following: 
 						= link_to current_user.all_follows.size, users_list_path
 						|
 						Followers: 
 						= link_to current_user.followers.size, users_list_path
+						|
+						= link_to "Edit Profile", edit_user_registration_path
 						|
 						= link_to "Sign Out", destroy_user_session_path, :method => :delete 
 						%br/
