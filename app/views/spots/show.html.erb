@@ -9,6 +9,10 @@
   <%= @spot.description %>
 </p>
 <p>
+  <strong>Address:</strong>
+  <%= @spot.address %>
+</p>
+<p>
   <strong>Street:</strong>
   <%= @spot.street %>
 </p>
@@ -35,6 +39,9 @@
 <% @tricks.each do |trick| %>
 <p>
 <%= image_tag trick.image.url(:medium) %>
+</p>
+<p>
+<%= link_to trick.user.name ,trick.user %>
 <% end %>
 </p>
 <%= link_to 'Edit', edit_spot_path(@spot) %> |

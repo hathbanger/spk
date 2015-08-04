@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804060419) do
+ActiveRecord::Schema.define(version: 20150804212555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150804060419) do
     t.float    "long"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "address"
   end
 
   create_table "taggings", force: true do |t|

@@ -59,7 +59,7 @@ class TricksController < ApplicationController
 	end
 
 	def trick_params
-		params.require(:trick).permit(:title, :description, :image, :lati, :long, :spot)
+		params.require(:trick).permit(:title, :description, :image, :lati, :long, :spot_id)
 	end
 
 end
