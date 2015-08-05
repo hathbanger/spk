@@ -34,12 +34,13 @@
 </p>
 <% @tricks.each do |trick| %>
 <p>
-<%= image_tag trick.image.url(:medium) %>
+<%= link_to image_tag(trick.image.url(:medium)), trick %>
 </p>
 <p>
 <%= link_to trick.user.name ,trick.user %>
 <% end %>
 </p>
+
 <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <%= link_to 'Back', spots_path %>
 <%= link_to "Destroy", spot_path(@spot), method: :delete, data: { confirm: "are you sure?"}%>

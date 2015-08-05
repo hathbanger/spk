@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 	  current_user.stop_following(@user)
 	  redirect_to :back
 	end
+	def update
+  		@user = User.find(params[:id])
+  		@user = User.update_attr(params)
+	end
 	
 	private
 	# Use strong_parameters for attribute whitelisting
